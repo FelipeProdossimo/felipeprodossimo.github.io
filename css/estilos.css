@@ -27,7 +27,12 @@ a:hover{
     list-style: none;
 }
 
-.site-titulo{
+.site-titulo,
+.site-subtitulo{
     color: whitesmoke;
     text-align: center;
+}
+
+.site-subtitulo{
+    font-style: italic;
 }
