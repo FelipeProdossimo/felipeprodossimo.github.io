@@ -1,23 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
-    background-image: url('../img/fundo2.jpg');
-    background-size: auto 130vh;
+    background-image: url('../img/fundo7.jpg');
+    background-size: auto auto;
     font-family: Arial;
     height: 100vh;
     font-size: 12px;
     color: floralwhite;
 }
-/* Se a tela tiver pelo menos 400px vai carregar estes estilos */
+/* Se a tela tiver pelo menos 400px vai carregar estes estilos 
+borrado.*/
 @media (min-width: 400px){
     body{
         font-size: 14px;
+        /*-webkit-filter: blur(15px);
+        -moz-filter: blur(15px);
+        -o-filter: blur(15px);
+        -ms-filter: blur(15px);
+        filter: blur(15px);*/
     }
 }
-/* breakpoint */
+
+@media (min-width: 600px){
+    body{
+        font-size: 18px;
+    }
+}
+
+/* breakpoint - com inversão de cores. */
 @media (min-width: 1200px){
     body{
         font-size: 20px;
+        /*
+        mudar de cor e tirar a imagem de fundo
         background-image: none;
-        background-color: deeppink;
+        background-color: rgb(163, 72, 121);
+        */
+        /*-webkit-filter: invert(100%);
+        filter: invert(100%);*/
     }
 }
 
@@ -30,8 +54,19 @@ a:hover{
     text-decoration: underline;
 }
 
+header{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .menu{
     background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100vw;
 }
 
 .menu ul{
@@ -43,12 +78,26 @@ a:hover{
     list-style: none;
 }
 
+.menu li a{
+    padding: 10px 20px;
+    display: block;
+}
+
 .site-titulo,
 .site-subtitulo{
     color: whitesmoke;
     text-align: center;
 }
 
+.site-titulo{
+    font-size: 4em;
+}
+
 .site-subtitulo{
     font-style: italic;
+}
+
+.img-portifolio{
+    height: 180px;
+    width: 180px;
 }
