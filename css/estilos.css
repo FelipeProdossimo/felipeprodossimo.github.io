@@ -1,0 +1,33 @@
+body{
+    background-image: url('../img/fundo2.jpg');
+    background-size: auto 130vh;
+    font-family: Arial;
+    height: 100vh;
+}
+
+a{
+    color: teal;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.menu{
+    background-color: white;
+}
+
+.menu ul{
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu li{
+    list-style: none;
+}
+
+.site-titulo{
+    color: whitesmoke;
+    text-align: center;
+}
