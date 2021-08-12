@@ -186,10 +186,6 @@ header {
     line-height: 1.8em;
 }
 
-.img-portifolio {
-    height: 180px;
-    width: 180px;
-}
 
 .portifolio {
     padding: 2em;
@@ -205,6 +201,21 @@ header {
 
 .portifolio .grid{
     display: grid;
-    gap: 2em;
-    grid-template-columns: 240px 240px;
+    gap: 7em;
+}
+
+@media (min-width: 560px){
+    .portifolio .grid{
+        grid-template-columns: repeat(2, 220px);
+    }
+}
+
+@media (min-width: 880px){
+    .portifolio .grid{
+        grid-template-columns: repeat(3, 220px);
+    }
+}
+.img-portifolio {
+    height: 180px;
+    width: 300px;
 }
