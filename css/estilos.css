@@ -1,39 +1,126 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Press+Start+2P&family=Source+Code+Pro:wght@300;400;700&display=swap');
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
-    background-image: url('../img/fundo7.jpg');
-    background-size: auto auto;
-    font-family: Arial;
-    height: 100vh;
+body {
+    font-family: 'Source Code Pro', monospace;
+    height: 250vh;
     font-size: 12px;
     color: floralwhite;
 }
-/* Se a tela tiver pelo menos 400px vai carregar estes estilos 
-borrado.*/
-@media (min-width: 400px){
-    body{
-        font-size: 14px;
-        /*-webkit-filter: blur(15px);
-        -moz-filter: blur(15px);
-        -o-filter: blur(15px);
-        -ms-filter: blur(15px);
-        filter: blur(15px);*/
+
+@media (min-width: 300px) {
+    body, .back-img {
+        background-image: url('../img/fundo7.jpg');
+        background-size: auto 50vh;
+        -webkit-backdrop-filter: blur(10px);
+        /* Safari 9+ */
+        backdrop-filter: blur(10px);
+        /* Chrome and Opera */
+        font-size: 12px;
     }
 }
 
-@media (min-width: 600px){
-    body{
+/* Se a tela tiver pelo menos 400px vai carregar estes estilos 
+borrado.*/
+
+@media (min-width: 400px) {
+    body, .back-img {
+        background-image: url('../img/fundo7.jpg');
+        background-size: auto 60vh;
+        -webkit-backdrop-filter: blur(10px);
+        /* Safari 9+ */
+        backdrop-filter: blur(10px);
+        /* Chrome and Opera */
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 500px) {
+    body, .back-img {
+        background-image: url('../img/fundo7.jpg');
+        background-size: auto 70vh;
+        -webkit-backdrop-filter: blur(10px);
+        /* Safari 9+ */
+        backdrop-filter: blur(10px);
+        /* Chrome and Opera */
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 600px) {
+    body, .back-img {
+        background-image: url('../img/fundo7.jpg');
+        background-size: auto 80vh;
+        -webkit-backdrop-filter: blur(10px);
+        /* Safari 9+ */
+        backdrop-filter: blur(10px);
+        /* Chrome and Opera */
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 700px) {
+    body, .back-img {
+        background-image: url('../img/fundo7.jpg');
+        background-size: auto 90vh;
+        -webkit-backdrop-filter: blur(10px);
+        /* Safari 9+ */
+        backdrop-filter: blur(10px);
+        /* Chrome and Opera */
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 800px) {
+    body, .back-img {
+        background-image: url('../img/fundo7.jpg');
+        background-size: auto 100vh;
+        -webkit-backdrop-filter: blur(10px);
+        /* Safari 9+ */
+        backdrop-filter: blur(10px);
+        /* Chrome and Opera */
+        font-size: 17px;
+    }
+}
+
+@media (min-width: 900px) {
+    body, .back-img {
+        background-image: url('../img/fundo7.jpg');
+        background-size: auto 140vh;
+        -webkit-backdrop-filter: blur(10px);
+        /* Safari 9+ */
+        backdrop-filter: blur(10px);
+        /* Chrome and Opera */
         font-size: 18px;
     }
 }
 
+@media (min-width: 1000px) {
+    body, .back-img {
+        background-image: url('../img/fundo7.jpg');
+        background-size: auto 190vh;
+        -webkit-backdrop-filter: blur(10px);
+        /* Safari 9+ */
+        backdrop-filter: blur(10px);
+        /* Chrome and Opera */
+        font-size: 19px;
+    }
+}
+
 /* breakpoint - com inversão de cores. */
-@media (min-width: 1200px){
-    body{
+
+@media (min-width: 1200px) {
+    body, .back-img {
+        background-image: url('../img/fundo7.jpg');
+        background-size: auto 230vh;
+        -webkit-backdrop-filter: blur(10px);
+        /* Safari 9+ */
+        backdrop-filter: blur(10px);
+        /* Chrome and Opera */
         font-size: 20px;
         /*
         mudar de cor e tirar a imagem de fundo
@@ -45,16 +132,16 @@ borrado.*/
     }
 }
 
-a{
+a {
     color: teal;
     text-decoration: none;
 }
 
-a:hover{
+a:hover {
     text-decoration: underline;
 }
 
-header{
+header {
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -62,42 +149,62 @@ header{
     flex-direction: column;
 }
 
-.menu{
+.menu {
     background-color: white;
     position: fixed;
     top: 0;
     width: 100vw;
 }
 
-.menu ul{
+.menu ul {
     display: flex;
     justify-content: space-around;
 }
 
-.menu li{
+.menu li {
     list-style: none;
 }
 
-.menu li a{
+.menu li a {
     padding: 10px 20px;
     display: block;
 }
 
-.site-titulo,
-.site-subtitulo{
+.site-titulo, .site-subtitulo {
     color: whitesmoke;
     text-align: center;
 }
 
-.site-titulo{
+.site-titulo {
     font-size: 4em;
+    font-family: 'Gloria Hallelujah', cursive;
 }
 
-.site-subtitulo{
+.site-subtitulo {
     font-style: italic;
+    font-family: 'Press Start 2P', cursive;
+    line-height: 1.8em;
 }
 
-.img-portifolio{
+.img-portifolio {
     height: 180px;
     width: 180px;
+}
+
+.portifolio {
+    padding: 2em;
+    height: 100vh;
+}
+
+.portifolio h2{
+    font-family: 'Press Start 2P';
+    color: white;
+    margin-bottom: 1.5em;
+    font-size: 2em;
+}
+
+.portifolio .grid{
+    display: grid;
+    gap: 2em;
+    grid-template-columns: 240px 240px;
 }
