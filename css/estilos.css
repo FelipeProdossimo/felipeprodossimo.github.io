@@ -142,9 +142,6 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
-}
 
 header {
     height: 100vh;
@@ -173,6 +170,30 @@ header {
 .menu li a {
     padding: 10px 20px;
     display: block;
+    transition: background-color 1s, color 0.5s;
+}
+
+.menu li a:hover,
+.menu li a:active{
+    background-color: blue;
+    color: white;
+}
+
+.titulo{
+    transform: scale(0.2) translateY(50vh);
+    opacity: 0;
+    animation: 1s ease 0.5s animacaoTitulo forwards;
+}
+
+@keyframes animacaoTitulo{
+    from{
+        transform: scale(0.2) translateY(50vh);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }    
 }
 
 .site-titulo, .site-subtitulo {
@@ -195,7 +216,7 @@ header {
 .portifolio,
 .contato{
     padding: 2em;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .portifolio h2, 
