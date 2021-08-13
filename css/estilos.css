@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Press+Start+2P&family=Source+Code+Pro:wght@300;400;700&display=swap');
+/* variavel do CSS */
+:root{
+    --cor-do-texto: whitesmoke;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +14,7 @@ body {
     font-family: 'Source Code Pro', monospace;
     height: 250vh;
     font-size: 12px;
-    color: floralwhite;
+    color: var(--cor-do-texto);
 }
 
 @media (min-width: 300px) {
@@ -171,7 +176,7 @@ header {
 }
 
 .site-titulo, .site-subtitulo {
-    color: whitesmoke;
+    color: var(--cor-do-texto);
     text-align: center;
 }
 
@@ -187,14 +192,16 @@ header {
 }
 
 
-.portifolio {
+.portifolio,
+.contato{
     padding: 2em;
     height: 100vh;
 }
 
-.portifolio h2{
+.portifolio h2, 
+.contato h2{
     font-family: 'Press Start 2P';
-    color: white;
+    color: var(--cor-do-texto);
     margin-bottom: 1.5em;
     font-size: 2em;
 }
@@ -212,10 +219,20 @@ header {
 
 @media (min-width: 880px){
     .portifolio .grid{
-        grid-template-columns: repeat(3, 220px);
+        grid-template-columns: repeat(3, 260px);
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 8em - 48px);
     }
 }
+
+.portifolio figure{
+    text-align: center;
+}
+
 .img-portifolio {
-    height: 180px;
-    width: 300px;
+    height: 200px;
+    width: 350px;
+    object-fit: cover;
+    object-position: left bottom;
 }
