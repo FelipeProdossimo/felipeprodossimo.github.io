@@ -26,6 +26,7 @@ body {
         backdrop-filter: blur(10px);
         /* Chrome and Opera */
         font-size: 12px;
+        background-attachment: fixed;
     }
 }
 
@@ -180,14 +181,14 @@ header {
 }
 
 .titulo{
-    transform: scale(0.2) translateY(50vh);
+    transform: scale(0,2) translateY(50vh);
     opacity: 0;
     animation: 1s ease 0.5s animacaoTitulo forwards;
 }
 
 @keyframes animacaoTitulo{
     from{
-        transform: scale(0.2) translateY(50vh);
+        transform: scale(0.5) translateY(50vh);
         opacity: 0;
     }
     to{
@@ -214,13 +215,29 @@ header {
 
 
 .portifolio,
-.contato{
+.contato,
+.sobre{
     padding: 2em;
     min-height: 100vh;
 }
 
+@media (min-width: 1200px){
+    .container{
+        width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+.sobre p{
+    color: white;
+    text-indent: 1.4em;
+    margin-bottom: 1.4em;
+    text-align: justify;
+}
+
 .portifolio h2, 
-.contato h2{
+.contato h2,
+.sobre h2{
     font-family: 'Press Start 2P';
     color: var(--cor-do-texto);
     margin-bottom: 1.5em;
@@ -252,8 +269,27 @@ header {
 }
 
 .img-portifolio {
-    height: 200px;
-    width: 350px;
+    height: 150px;
+    width: 300px;
     object-fit: cover;
     object-position: left bottom;
+    transition: transform 0.5s; /* OR 500ms */
+}
+
+.img-portifolio:hover{
+    transform: scale(1.2) rotate(0deg);
+}
+
+.contato .icones{
+    text-align: center;
+}
+
+.contato a{
+    color: var(--cor-do-texto);
+    font-size: 4em;
+    transition: text-shadow 0.5s;
+}
+
+.contato a:hover{
+    text-shadow: 0px 0px 10px rgba(0, 225, 255, 0.5);
 }
