@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varejão Folha Verde — Peça pelo WhatsApp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde-escuro:#1F4E3D;
+    --verde-folha:#4F7942;
+    --verde-claro:#F4F7ED;
+    --amarelo-milho:#F2A93B;
+    --vermelho-tomate:#C1432E;
+    --texto:#2B2B26;
+    --texto-suave:#5C5C54;
+    --branco:#FFFFFF;
+    --borda:#E1E4D6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Work Sans', sans-serif;
+    color:var(--texto);
+    background:var(--verde-claro);
+    padding-bottom:90px;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    margin:0;
+  }
+
+  /* HEADER */
+  header{
+    background:var(--verde-escuro);
+    color:var(--branco);
+    padding:14px 16px;
+    position:sticky;
+    top:0;
+    z-index:20;
+  }
+  .header-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .brand-leaf{
+    width:38px;height:38px;
+    border-radius:50%;
+    background:var(--amarelo-milho);
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px;
+    flex-shrink:0;
+  }
+  .brand-name{
+    font-family:'Fraunces', serif;
+    font-size:19px;
+    font-weight:600;
+    line-height:1.1;
+  }
+  .brand-sub{
+    font-size:11px;
+    color:#CFE0D3;
+  }
+  .cart-btn{
+    background:var(--amarelo-milho);
+    color:var(--verde-escuro);
+    border:none;
+    border-radius:20px;
+    padding:8px 14px;
+    font-weight:600;
+    font-size:13px;
+    font-family:'Work Sans',sans-serif;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    white-space:nowrap;
+  }
+  .trust-strip{
+    display:flex;
+    gap:14px;
+    margin-top:10px;
+    font-size:11.5px;
+    color:#CFE0D3;
+    flex-wrap:wrap;
+  }
+  .trust-strip b{color:var(--branco);}
+
+  /* HERO */
+  .hero{
+    background:var(--verde-folha);
+    color:var(--branco);
+    padding:34px 20px 40px;
+    text-align:left;
+  }
+  .hero h1{
+    font-size:28px;
+    line-height:1.15;
+    font-weight:600;
+    max-width:340px;
+  }
+  .hero p{
+    font-size:14.5px;
+    color:#E4EFDD;
+    margin:12px 0 20px;
+    max-width:320px;
+  }
+  .hero-cta{
+    background:var(--amarelo-milho);
+    color:var(--verde-escuro);
+    border:none;
+    padding:13px 22px;
+    border-radius:28px;
+    font-weight:700;
+    font-size:14.5px;
+    font-family:'Work Sans',sans-serif;
+    cursor:pointer;
+  }
+
+  /* INFO CARDS */
+  .info-bar{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    padding:16px;
+    margin-top:-24px;
+  }
+  .info-card{
+    background:var(--branco);
+    border-radius:14px;
+    padding:12px 14px;
+    box-shadow:0 4px 14px rgba(31,78,61,0.08);
+  }
+  .info-card .label{
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--texto-suave);
+    margin-bottom:3px;
+  }
+  .info-card .value{
+    font-size:13px;
+    font-weight:600;
+    color:var(--verde-escuro);
+  }
+
+  /* SECTION TITLE */
+  .section-title{
+    padding:26px 16px 6px;
+  }
+  .section-title h2{
+    font-size:21px;
+    color:var(--verde-escuro);
+  }
+  .section-title p{
+    font-size:13px;
+    color:var(--texto-suave);
+    margin-top:4px;
+  }
+
+  /* PRODUCT GRID */
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    padding:12px 16px 8px;
+  }
+  @media(min-width:640px){
+    .grid{grid-template-columns:repeat(3,1fr);}
+  }
+  @media(min-width:900px){
+    .grid{grid-template-columns:repeat(4,1fr);}
+  }
+  .card{
+    background:var(--branco);
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid var(--borda);
+    display:flex;
+    flex-direction:column;
+    position:relative;
+  }
+  .photo{
+    height:96px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:42px;
+  }
+  .tag{
+    position:absolute;
+    top:8px;
+    left:8px;
+    background:var(--branco);
+    font-family:'Caveat', cursive;
+    font-weight:700;
+    font-size:19px;
+    color:var(--vermelho-tomate);
+    padding:2px 10px 4px;
+    border-radius:6px;
+    border:1.5px dashed var(--vermelho-tomate);
+    transform:rotate(-4deg);
+    line-height:1;
+  }
+  .card-body{
+    padding:10px 12px 12px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+  }
+  .card-body h3{
+    font-family:'Work Sans',sans-serif;
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--texto);
+  }
+  .card-body .desc{
+    font-size:11.5px;
+    color:var(--texto-suave);
+    margin:4px 0 8px;
+    line-height:1.35;
+    flex:1;
+  }
+  .card-body .stock{
+    font-size:10.5px;
+    color:var(--verde-folha);
+    margin-bottom:8px;
+  }
+  .qty-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:6px;
+  }
+  .stepper{
+    display:flex;
+    align-items:center;
+    border:1px solid var(--borda);
+    border-radius:20px;
+    overflow:hidden;
+  }
+  .stepper button{
+    width:26px;height:26px;
+    border:none;
+    background:var(--verde-claro);
+    color:var(--verde-escuro);
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+  }
+  .stepper span{
+    min-width:22px;
+    text-align:center;
+    font-size:13px;
+    font-weight:600;
+  }
+  .add-btn{
+    background:var(--verde-escuro);
+    color:var(--branco);
+    border:none;
+    border-radius:20px;
+    padding:6px 12px;
+    font-size:12px;
+    font-weight:600;
+    cursor:pointer;
+    font-family:'Work Sans',sans-serif;
+  }
+  .add-btn.added{
+    background:var(--verde-folha);
+  }
+
+  /* FLOATING CART BAR */
+  .floating-bar{
+    position:fixed;
+    left:16px;right:16px;
+    bottom:16px;
+    background:var(--verde-escuro);
+    color:var(--branco);
+    border-radius:16px;
+    padding:14px 16px;
+    display:none;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 8px 24px rgba(0,0,0,0.25);
+    z-index:30;
+    cursor:pointer;
+  }
+  .floating-bar.show{display:flex;}
+  .floating-bar .fb-left{font-size:13px;}
+  .floating-bar .fb-left b{font-size:15px;display:block;}
+  .floating-bar .fb-btn{
+    background:var(--amarelo-milho);
+    color:var(--verde-escuro);
+    border:none;
+    padding:9px 16px;
+    border-radius:20px;
+    font-weight:700;
+    font-size:13px;
+  }
+
+  /* CART MODAL */
+  .overlay{
+    position:fixed;inset:0;
+    background:rgba(31,78,61,0.45);
+    display:none;
+    align-items:flex-end;
+    z-index:50;
+  }
+  .overlay.show{display:flex;}
+  .sheet{
+    background:var(--branco);
+    width:100%;
+    max-height:82vh;
+    border-radius:20px 20px 0 0;
+    padding:18px 18px 20px;
+    overflow-y:auto;
+  }
+  .sheet-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+  }
+  .sheet-header h2{font-size:19px;color:var(--verde-escuro);}
+  .close-btn{
+    background:var(--verde-claro);
+    border:none;
+    width:30px;height:30px;
+    border-radius:50%;
+    font-size:16px;
+    cursor:pointer;
+  }
+  .cart-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 0;
+    border-bottom:1px solid var(--borda);
+  }
+  .cart-item .ci-photo{
+    width:40px;height:40px;
+    border-radius:10px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px;
+    flex-shrink:0;
+  }
+  .cart-item .ci-info{flex:1;}
+  .cart-item .ci-info .n{font-size:13.5px;font-weight:600;}
+  .cart-item .ci-info .p{font-size:12px;color:var(--texto-suave);}
+  .cart-empty{
+    text-align:center;
+    padding:30px 10px;
+    color:var(--texto-suave);
+    font-size:14px;
+  }
+  .cart-total-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 0 6px;
+    font-size:16px;
+    font-weight:700;
+    color:var(--verde-escuro);
+  }
+  .whatsapp-btn{
+    width:100%;
+    background:#25D366;
+    color:var(--branco);
+    border:none;
+    padding:14px;
+    border-radius:14px;
+    font-size:15px;
+    font-weight:700;
+    font-family:'Work Sans',sans-serif;
+    cursor:pointer;
+    margin-top:10px;
+  }
+  .cart-hint{
+    font-size:11.5px;
+    color:var(--texto-suave);
+    text-align:center;
+    margin-top:8px;
+  }
+
+  footer{
+    text-align:center;
+    padding:22px 16px 8px;
+    font-size:11.5px;
+    color:var(--texto-suave);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-row">
+    <div class="brand">
+      <div class="brand-leaf">🍃</div>
+      <div>
+        <div class="brand-name">Folha Verde</div>
+        <div class="brand-sub">Varejão · Parque Res. Jaguari, Americana</div>
+      </div>
+    </div>
+    <button class="cart-btn" onclick="openCart()">🛒 <span id="cart-count-mini">0</span></button>
+  </div>
+  <div class="trust-strip">
+    <span>⭐ <b>4,6</b> · 106 avaliações no Google</span>
+    <span>Aberto agora</span>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Do balcão do bairro direto pro seu WhatsApp</h1>
+  <p>Escolha os produtos, monte seu pedido e finalize numa conversa com a gente. Sem cadastro, sem complicação.</p>
+  <button class="hero-cta" onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">Ver produtos</button>
+</section>
+
+<div class="info-bar">
+  <div class="info-card">
+    <div class="label">Endereço</div>
+    <div class="value">R. Altamiro Carrilho, 466 — Jaguari</div>
+  </div>
+  <div class="info-card">
+    <div class="label">Horário</div>
+    <div class="value">Seg–Sex 8h–19h · Sáb 8h–18h</div>
+  </div>
+</div>
+
+<div class="section-title" id="catalogo">
+  <h2>Produtos de hoje</h2>
+  <p>Toque em + para adicionar e depois finalize pelo WhatsApp.</p>
+</div>
+
+<div class="grid" id="product-grid"></div>
+
+<footer>
+  Varejão Folha Verde · (19) 3604-6100 · Parque Res. Jaguari, Americana - SP
+</footer>
+
+<div class="floating-bar" id="floating-bar" onclick="openCart()">
+  <div class="fb-left">
+    <span id="fb-count">0 itens</span>
+    <b id="fb-total">R$ 0,00</b>
+  </div>
+  <button class="fb-btn" onclick="event.stopPropagation(); openCart()">Ver carrinho</button>
+</div>
+
+<div class="overlay" id="overlay" onclick="if(event.target===this) closeCart()">
+  <div class="sheet">
+    <div class="sheet-header">
+      <h2>Seu pedido</h2>
+      <button class="close-btn" onclick="closeCart()">✕</button>
+    </div>
+    <div id="cart-items"></div>
+    <div id="cart-footer"></div>
+  </div>
+</div>
+
+<script>
+const WHATSAPP_NUMBER = "551936046100";
+
+const products = [
+  {id:1, name:"Banana Prata", unit:"kg", desc:"Banana prata fresca e no ponto ideal para consumo in natura.", price:7.99, stock:"50 kg disponíveis", emoji:"🍌", bg:"#FFF3D6"},
+  {id:2, name:"Tomate Carmem", unit:"kg", desc:"Tomate de mesa selecionado, com polpa firme para saladas.", price:9.50, stock:"30 kg disponíveis", emoji:"🍅", bg:"#FBE2DD"},
+  {id:3, name:"Batata Lavada", unit:"kg", desc:"Batata lisa tipo inglesa, versátil para cozimento ou fritura.", price:8.90, stock:"100 kg disponíveis", emoji:"🥔", bg:"#F1E7D6"},
+  {id:4, name:"Cebola Nacional", unit:"kg", desc:"Cebola amarela tradicional, base essencial para temperos.", price:6.50, stock:"40 kg disponíveis", emoji:"🧅", bg:"#F6E9CF"},
+  {id:5, name:"Alface Crespa", unit:"un", desc:"Maço de alface crespa fresca, folhas verdes e crocantes.", price:3.50, stock:"25 un disponíveis", emoji:"🥬", bg:"#E4F0D9"},
+  {id:6, name:"Maçã Gala", unit:"kg", desc:"Maçã doce, suculenta e de tamanho médio.", price:11.90, stock:"20 kg disponíveis", emoji:"🍎", bg:"#FBDFDD"},
+  {id:7, name:"Cenoura", unit:"kg", desc:"Cenoura fresca de casca lisa, excelente para saladas e refogados.", price:5.99, stock:"35 kg disponíveis", emoji:"🥕", bg:"#FBE4CE"},
+  {id:8, name:"Laranja Pera", unit:"kg", desc:"Laranja doce e com alto rendimento de caldo, ideal para sucos.", price:4.99, stock:"80 kg disponíveis", emoji:"🍊", bg:"#FCE7CE"},
+  {id:9, name:"Ovos Brancos", unit:"dúzia", desc:"Ovos brancos tipo grande em embalagem com 12 unidades.", price:9.90, stock:"30 caixas disponíveis", emoji:"🥚", bg:"#F7F1DE"},
+  {id:10, name:"Mamão Formosa", unit:"kg", desc:"Mamão formosa maduro e doce, com bastante polpa.", price:10.50, stock:"Disponível", emoji:"🍈", bg:"#F5E9D2"}
+];
+
+let cart = {};
+
+function formatBRL(v){
+  return "R$ " + v.toFixed(2).replace(".", ",");
+}
+
+function renderProducts(){
+  const grid = document.getElementById("product-grid");
+  grid.innerHTML = products.map(p => {
+    const qty = cart[p.id] || 0;
+    return `
+      <div class="card">
+        <div class="tag">${formatBRL(p.price)}</div>
+        <div class="photo" style="background:${p.bg}">${p.emoji}</div>
+        <div class="card-body">
+          <h3>${p.name} <span style="color:var(--texto-suave);font-weight:400;">(${p.unit})</span></h3>
+          <div class="desc">${p.desc}</div>
+          <div class="stock">${p.stock}</div>
+          <div class="qty-row">
+            <div class="stepper">
+              <button onclick="changeQty(${p.id}, -1)">−</button>
+              <span id="qty-${p.id}">${qty}</span>
+              <button onclick="changeQty(${p.id}, 1)">+</button>
+            </div>
+            <button class="add-btn ${qty>0?'added':''}" id="add-${p.id}" onclick="addToCart(${p.id})">${qty>0?'No carrinho':'Adicionar'}</button>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+function changeQty(id, delta){
+  const current = cart[id] || 0;
+  const next = Math.max(0, current === 0 && delta > 0 ? 1 : current + delta);
+  if(next === 0){
+    delete cart[id];
+  } else {
+    cart[id] = next;
+  }
+  document.getElementById("qty-"+id).textContent = cart[id] || 0;
+  const btn = document.getElementById("add-"+id);
+  btn.textContent = cart[id] ? "No carrinho" : "Adicionar";
+  btn.classList.toggle("added", !!cart[id]);
+  updateFloatingBar();
+}
+
+function addToCart(id){
+  if(!cart[id]){
+    cart[id] = 1;
+    document.getElementById("qty-"+id).textContent = 1;
+    const btn = document.getElementById("add-"+id);
+    btn.textContent = "No carrinho";
+    btn.classList.add("added");
+  }
+  updateFloatingBar();
+}
+
+function updateFloatingBar(){
+  const ids = Object.keys(cart);
+  const totalItems = ids.reduce((sum,id) => sum + cart[id], 0);
+  const totalValue = ids.reduce((sum,id) => sum + cart[id] * products.find(p=>p.id==id).price, 0);
+  const bar = document.getElementById("floating-bar");
+  document.getElementById("cart-count-mini").textContent = totalItems;
+  if(totalItems > 0){
+    bar.classList.add("show");
+    document.getElementById("fb-count").textContent = totalItems + (totalItems===1 ? " item" : " itens");
+    document.getElementById("fb-total").textContent = formatBRL(totalValue);
+  } else {
+    bar.classList.remove("show");
+  }
+  if(document.getElementById("overlay").classList.contains("show")){
+    renderCart();
+  }
+}
+
+function openCart(){
+  renderCart();
+  document.getElementById("overlay").classList.add("show");
+}
+function closeCart(){
+  document.getElementById("overlay").classList.remove("show");
+}
+
+function renderCart(){
+  const ids = Object.keys(cart);
+  const itemsEl = document.getElementById("cart-items");
+  const footerEl = document.getElementById("cart-footer");
+
+  if(ids.length === 0){
+    itemsEl.innerHTML = `<div class="cart-empty">Seu carrinho está vazio.<br>Volte ao catálogo e escolha seus produtos.</div>`;
+    footerEl.innerHTML = "";
+    return;
+  }
+
+  itemsEl.innerHTML = ids.map(id => {
+    const p = products.find(x => x.id == id);
+    const qty = cart[id];
+    return `
+      <div class="cart-item">
+        <div class="ci-photo" style="background:${p.bg}">${p.emoji}</div>
+        <div class="ci-info">
+          <div class="n">${p.name}</div>
+          <div class="p">${qty} ${p.unit} × ${formatBRL(p.price)}</div>
+        </div>
+        <div class="stepper">
+          <button onclick="changeQty(${p.id}, -1)">−</button>
+          <span>${qty}</span>
+          <button onclick="changeQty(${p.id}, 1)">+</button>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  const total = ids.reduce((sum,id) => sum + cart[id] * products.find(p=>p.id==id).price, 0);
+
+  footerEl.innerHTML = `
+    <div class="cart-total-row"><span>Total</span><span>${formatBRL(total)}</span></div>
+    <button class="whatsapp-btn" onclick="sendToWhatsapp()">Finalizar pedido no WhatsApp</button>
+    <div class="cart-hint">Você vai confirmar tudo com a gente antes de pagar ou combinar a entrega.</div>
+  `;
+}
+
+function sendToWhatsapp(){
+  const ids = Object.keys(cart);
+  if(ids.length === 0) return;
+
+  let message = "Olá! Vim pelo site do Folha Verde e quero fazer este pedido:\n\n";
+  let total = 0;
+  ids.forEach(id => {
+    const p = products.find(x => x.id == id);
+    const qty = cart[id];
+    const subtotal = qty * p.price;
+    total += subtotal;
+    message += `• ${qty} ${p.unit} de ${p.name} — ${formatBRL(subtotal)}\n`;
+  });
+  message += `\nTotal estimado: ${formatBRL(total)}\n\nAguardo a confirmação de disponibilidade e a forma de retirada/entrega. Obrigado!`;
+
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank");
+}
+
+renderProducts();
+</script>
+
+</body>
+</html>
